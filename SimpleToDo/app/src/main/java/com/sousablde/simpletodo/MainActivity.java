@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 //display activity of the user
                 Intent i = new Intent(MainActivity.this, EditItemActivity.class);
                 i.putExtra(ITEM_TEXT, items.get(position));
+                //passing the position to insure editing happens in selected item line
+                i.putExtra(ITEM_POSITION, position);
                 //display the activity
                 startActivityForResult(i, EDIT_REQUEST_CODE);
             }
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             writeItems();
             //using a toast like before to notify the user that the operation was successfully concluded
             Toast.makeText(this, "Item updated successfully", Toast.LENGTH_SHORT).show();
-            
+
         }
     }
 
